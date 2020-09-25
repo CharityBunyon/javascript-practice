@@ -173,3 +173,98 @@ console.log(items);
 const html = '<ul>' + items.join('') + '</ul>';
 
 console.log(html)
+
+//Reducing an Array
+
+const difNums = [1, -1, 2, 3];
+
+// let sum = 0;
+
+// for(let n of difNums){
+//     sum += n;
+//     console.log(sum);
+// }
+
+//simpler way to reduce all numbers into one number
+// reduce accepts 2 params, a callback function and the initial value for the accumulator
+const sum = difNums.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+}, 0) //can get rid of 0 and a will be set to 1(first num in array)
+console.log(sum);
+//a=0, c = 1=> a = 1
+//a=1, c= -1 => a = 0
+//a=0, c= 2 => a =2
+//a=2, c=2 => a => 5
+
+// refactored
+// const sum = difNums.reduce((accumulator, currentValue) => accumulator + currentValue);
+// console.log(sum);
+
+
+
+//Array from range exercise
+
+// const arrayFromRange = (min, max) =>{
+//     const output = [];
+//     for(let i = min; i <= max; i++)
+//     output.push(i);
+//     return output;
+// };
+
+// const nums10 = arrayFromRange(1, 10);
+// console.log(nums10);
+
+
+//Includes exercise
+//const nums10 = [1, 2, 3, 4];
+// const includes = (array, searchElement) => {
+//     if(array.includes(searchElement)){
+//        return true;
+//     } else {
+//         return false;
+//     }
+// };
+
+//or
+// const includes = (array, searchElement) => {
+//     for(let element of array)
+//     if(element === searchElement)
+//         return true;
+//     return false;
+// };
+
+// console.log(includes(nums10, 10));
+
+
+//Except Exercise
+// const except = (array, excluded) => {
+//     const output = [];
+
+//     for(let element of array)
+//         if(!excluded.includes(element))
+//             output.push(element);
+//         return output;
+      
+// }
+
+// const nums10 = [1, 2, 3, 4, 1, 1];
+// const output = except(nums10, [1, 2]);
+
+// console.log(output);
+
+
+//Moving an Element
+
+const nums10 = [1, 2, 3, 4];
+
+const move = (array, index, offset) => {
+    const newArray = [...array];
+    const element = newArray.splice(index, 1)[0];
+    console.log(element)
+    newArray.splice(index + offset, 0, element);
+        return newArray;
+};
+
+const output = move(nums10, 0, 1);
+
+console.log(output);
