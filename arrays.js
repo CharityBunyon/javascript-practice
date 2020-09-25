@@ -31,6 +31,7 @@ console.log(numbers1.includes(1));
 const courses = [
     {id: 1, name: 'a'},
     {id: 2, name: 'b'},
+    {id: 1, name: 'a'},
 ];
 
 console.log(courses.includes({id: 1, name: 'a'}));
@@ -255,16 +256,86 @@ console.log(sum);
 
 //Moving an Element
 
-const nums10 = [1, 2, 3, 4];
+// const nums10 = [1, 2, 3, 4];
 
-const move = (array, index, offset) => {
-    const newArray = [...array];
-    const element = newArray.splice(index, 1)[0];
-    console.log(element)
-    newArray.splice(index + offset, 0, element);
-        return newArray;
-};
+// const move = (array, index, offset) => {
+//     const newArray = [...array];
+//     const element = newArray.splice(index, 1)[0];
+//     console.log(element)
+//     newArray.splice(index + offset, 0, element);
+//         return newArray;
+// };
 
-const output = move(nums10, 0, 1);
+// const output = move(nums10, 0, 1);
 
-console.log(output);
+// console.log(output);
+
+
+
+//count occurrences exercise
+
+// const nums10 = [1,2,3,4,1];
+
+// const countOccurences = (array, searchElement) => {
+//     // let count = 0;
+//     // for(let element of array)
+//     //     if(element === searchElement){
+//     //     count++
+//     //     }  
+//     //     return count;
+//    return array.reduce((accumulator, current) => {
+//         const occurrence = (current === searchElement) ? 1 : 0;
+//         console.log(accumulator, current, searchElement)
+//         return accumulator + occurrence;
+//     }, 0);
+// }
+
+// const count = countOccurences(nums10, 1);
+// console.log(count);
+
+
+//Get Max Exercise
+
+// const nums10= [1, 2, 3, 4, 5];
+
+// const getMax = (array) => {
+//     // for(let element of array)
+//     //return Math.max.apply(null, array); //my solution
+
+//     // if(array.length === 0) return undefined; //his solution
+//     // let max = array[0];
+//     // for(let i = 1; i < array.length; i++)
+//     //     if(array[i] > max)
+//     //         max = array[i];
+//     //     return max;
+
+//     if(array.length === 0) return undefined; //his 2nd solution
+//         return array.reduce((a, b) => (a > b) ?  a : b);
+    
+// }
+
+// const max = getMax(nums10);
+// console.log(max);
+
+
+
+//Movies exercise
+
+const movies = [
+    {title: 'a', year: 2018, rating: 4.5},
+    {title: 'b', year: 2018, rating: 4.7},
+    {title: 'c', year: 2018, rating: 3},
+    {title: 'd', year: 2017, rating: 4.5},
+];
+
+//All the movies in 2018 with rating > 4
+//sORT them by their rating in descending order
+//pick their title
+
+
+
+   const titles = movies.filter(m => m.year === 2018 && m.rating >= 4)
+        .sort((a, b) => a.rating - b.rating)
+        .reverse()
+        .map(m => m.title);
+        console.log(titles)
