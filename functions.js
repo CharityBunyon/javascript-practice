@@ -227,8 +227,8 @@
 // circle.area = read only
 
 
-const area = (radius) => {
-    return Math.PI * radius * radius;
-}
+// const area = (radius) => {
+//     return Math.PI * radius * radius;
+// }
 
-console.log(area(3))
+// console.log(area(3))
