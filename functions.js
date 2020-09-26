@@ -162,19 +162,73 @@
 
 
 //The this keyword: references the object that is executing the current function
+//method => obj
+//function => global(window, global)
+// const video = {
+//     title: 'a',
+//     tags: ['a', 'b', 'c'],
+//     showTags() {
+//         this.tags.forEach((tag) => {
+//             console.log(this.title, tag);
+//         }, this)
+//     }
+// };
 
-const video = {
-    title: 'a',
-    play() {
-        console.log(this);
-    }
-};
-//video.play();
-function Video(title) {
-    this.title = title;
-    console.log(this);
+// video.showTags();
+
+
+
+
+//Changing this--- don't use this approach
+
+// const video = {
+//     title: 'a',
+//     tags: ['a', 'b', 'c'],
+//     showTags() {
+//         this.tags.forEach((tag) => {
+//             console.log(this.title, tag);
+//         })
+//     }
+// };
+
+// video.showTags();
+
+// function playVideo(a, b) {
+//     console.log(this);
+// }
+
+// playVideo.call({name: 'Charity'}, 1,2);
+// playVideo.apply({name: 'Charity'}, [1, 2]);
+// playVideo.bind({name: 'Charity'})(); //returns a new function
+// playVideo()
+
+
+
+
+//Finding sum of arguments exercise
+// const sum = (...args) => [...args].reduce((a, b) => a + b);
+
+// //with an array
+// const sum = (...args) => {
+//     if(items.length === 1 && Array.isArray(items[0]))
+//         items = [...items[0]];
+
+//     return [...args].reduce((a, b) => a + b);
+// }
+
+
+// console.log(sum(1, 2, 3, 4));
+
+
+
+//Area of circle exercise
+
+// circle.radius = 2;
+// circle.area = read only
+
+
+const area = (radius) => {
+    return Math.PI * radius * radius;
 }
 
-const v = new Video('a');
-
-
+console.log(area(3))
