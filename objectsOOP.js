@@ -94,18 +94,105 @@
 
 //Adding and removing properties
 
-function Circle(radius) {
-    this.radius = radius;
-    this.draw = () => {
-        console.log('draw');
-    }
-}
+// function Circle(radius) {
+//     this.radius = radius;
+//     this.draw = () => {
+//         console.log('draw');
+//     }
+// }
 
-const circle = new Circle(10); //objects are dynamic
-circle.location = {x: 1};
-console.log(circle)
+// const circle = new Circle(10); //objects are dynamic
+// circle.location = {x: 1};
+// console.log(circle)
 
 
 
 //Enumerating Properties
+
+// function Circle(radius) {
+//     this.radius = radius;
+//     this.draw = function() {
+//         console.log('draw');
+//     }
+// }
+
+// const circle = new Circle(10); 
+
+// //iterate over the properties in an object use a for in loop
+// for (let key in circle) {
+//     if(typeof circle[key] !== 'function')
+//     console.log(key, circle[key]);
+// }
+// //use bracket notation to get the values
+// //to get all the keys in an object use object.keys
+// const keys = Object.keys(circle);
+// console.log(keys);
+
+// //to check for an existing property or method in an object use 'in operator'
+// if('radius' in circle)
+// console.log('Circle has a radius')
+
+
+
+
+//Abstraction- hide the details and complexity and show the essentials
+// function Circle(radius) {
+//     this.radius = radius;
+    
+//     this.defaultLocation = {x: 0, y: 0};
+
+//     this.computeOptimumLocation = function(factor){
+//         //...
+//     }
+
+//     this.draw = function() {
+//         this.computeOptimumLocation(0.1)
+//         console.log('draw');
+//     }
+// }
+
+// const circle = new Circle(10); 
+// circle.draw();
+//only want to expose the draw and radius method
+
+
+
+
+//Stopwatch
+
+function Stopwatch() {
+    let startTime, endTime, running, duration = 0;
+
+    this.start = function() {
+        if(running)
+         throw new Error('Stopwatch has already started.');
+
+        running = true;
+        startTime = new Date();
+    }
+
+    this.stop = function() {
+        if(!running)
+            throw new Error('Stopwatch is not started.')
+        
+        running = false;
+
+        endTime = new Date();
+
+        const seconds = (endTime.getTime() - startTime.getTime()) / 1000;
+        duration += seconds;
+      
+    }
+
+    this.reset = function() {
+
+    }
+
+    Object.defineProperty(this, 'duration', {
+    });
+}
+
+const sw = new Stopwatch();
+
+console.log(sw);
 
